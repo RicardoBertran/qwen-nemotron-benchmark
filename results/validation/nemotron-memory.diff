@@ -1,0 +1,21 @@
+--- initial/src/memory.js
++++ nemotron/src/memory.js
+@@ -9,6 +9,9 @@
+   F16: 2.00,
+   NVFP4: 0.50
+ };
++
++// GiB in bytes (binary prefix)
++const GiB = 1024 ** 3;
+ 
+ /**
+  * Estimate model weight memory in GiB.
+@@ -31,7 +34,7 @@
+   const bytes = paramsB * 1_000_000_000 * bytesPerParam;
+ 
+   // convert bytes to GiB
+-  return bytes / 1_000_000_000;
++  return bytes / GiB;
+ }
+ 
+ /**

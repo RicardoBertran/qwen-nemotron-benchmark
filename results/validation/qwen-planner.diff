@@ -1,0 +1,11 @@
+--- initial/src/planner.js
++++ qwen/src/planner.js
+@@ -50,7 +50,7 @@
+       }
+ 
+       if (a.estimatedGiB !== b.estimatedGiB) {
+-        return b.estimatedGiB - a.estimatedGiB;
++        return a.estimatedGiB - b.estimatedGiB;
+       }
+ 
+       return a.filename.localeCompare(b.filename);

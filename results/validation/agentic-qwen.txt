@@ -1,0 +1,20 @@
+✔ converts Q4_K_M weight bytes to GiB (0.7489ms)
+✔ runtime estimate includes context-scaled KV cache and overhead (0.1492ms)
+✔ rejects unsupported quantization (0.3317ms)
+✔ parses Q4_K_M exactly (0.9286ms)
+✔ parses Q8_0 exactly (0.2139ms)
+✔ does not invent a Q quantization for NVFP4 (0.1254ms)
+✔ evaluateFit marks a model compatible within the memory budget (1.2866ms)
+✔ evaluateFit rejects a model that exceeds the total budget (0.1259ms)
+✔ rankModels prefers larger models first (0.1505ms)
+✔ rankModels prefers smaller footprint when parameter counts tie (0.1237ms)
+✔ rankModels uses filename as final deterministic tie-break (8.0274ms)
+✔ chooseModels parses, filters and ranks end to end (0.5768ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 12
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 99.0094

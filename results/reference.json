@@ -1,0 +1,27 @@
+{
+  "date": "2026-10-05",
+  "scope": "single documented local runs; different quantizations and KV cache formats",
+  "context_tokens": 65536,
+  "device_order": ["CUDA1", "CUDA0"],
+  "tensor_split": [70, 30],
+  "mtp": true,
+  "qwen": {
+    "quantization": "Q4_K_M",
+    "reasoning": {"distance": 28, "generated_tokens": 27665, "displayed_seconds": 221, "tokens_per_second": 125.04},
+    "prefill": {"input_tokens": 9625, "displayed_seconds": 8.3, "tokens_per_second": 1157.69},
+    "generation": {"generated_tokens": 5275, "displayed_seconds": 76, "tokens_per_second": 69.17},
+    "coding": {"passed": 9, "total": 10, "full_historical_function_available": false},
+    "agentic": {"passed": 12, "total": 12, "suite_executions": 2}
+  },
+  "nemotron": {
+    "quantization": "NVFP4",
+    "reasoning": {"distance": 28, "generated_tokens": 7225, "displayed_seconds": 48, "tokens_per_second": 148.25},
+    "prefill": {"input_tokens": 10554, "displayed_seconds": 6.7, "tokens_per_second": 1570.92},
+    "generation": {"generated_tokens": 5652, "displayed_seconds": 41, "tokens_per_second": 136.54},
+    "coding": {"passed": 1, "total": 10, "full_historical_function_available": true},
+    "agentic": {"passed": 12, "total": 12, "suite_executions": 3}
+  },
+  "displayed_times_are_rounded": true,
+  "historical_engine_version": null,
+  "historical_weight_revisions": null
+}

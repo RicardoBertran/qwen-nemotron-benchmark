@@ -1,0 +1,11 @@
+__pycache__/
+*.py[cod]
+*.gguf
+*.mp4
+*.exe
+*.dll
+.env
+results/local/
+
+node_modules/
+.git/

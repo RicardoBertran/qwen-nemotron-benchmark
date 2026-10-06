@@ -1,0 +1,13 @@
+Escribe una solución completa en Python para la siguiente tarea.Debes implementar exactamente esta función:def rebuild_sessions(events):
+    ...events es una lista de diccionarios. Cada evento contiene:{
+    "user": str,
+    "timestamp": int,
+    "type": "start" | "data" | "end",
+    "bytes": int  # solo es relevante en eventos "data"
+}Los eventos pueden llegar desordenados.Reglas:Antes de procesar los eventos, ordénalos por timestamp de menor a mayor.Si dos o más eventos tienen exactamente el mismo timestamp, debes conservar entre ellos el mismo orden en el que aparecían en la lista original.Cada usuario mantiene su propia sesión de forma totalmente independiente.Un evento start abre una nueva sesión para ese usuario.Si llega un start cuando ese usuario ya tiene una sesión abierta, la sesión anterior debe cerrarse inmediatamente:end será el timestamp del nuevo start.reason será "restarted".Después se abre la nueva sesión.Un evento data suma su valor de bytes únicamente si ese usuario tiene una sesión abierta.Un evento data sin sesión abierta se ignora.Un evento end cierra la sesión abierta de ese usuario:end será el timestamp del evento.reason será "ended".Un evento end sin sesión abierta se ignora.Los valores bytes presentes en eventos start o end, si existen, deben ignorarse.Si al terminar de procesar todos los eventos queda alguna sesión abierta:end debe ser None.reason debe ser "open".Cada sesión devuelta debe tener exactamente esta estructura:{
+    "user": str,
+    "start": int,
+    "end": int | None,
+    "bytes": int,
+    "reason": "ended" | "restarted" | "open"
+}Las sesiones deben devolverse en el mismo orden en que fueron abiertas después de ordenar establemente los eventos por timestamp.No utilices librerías externas.Devuelve una implementación completa y directamente ejecutable.No escribas pseudocódigo.No cambies la firma de la función.No inventes requisitos adicionales.

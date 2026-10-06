@@ -1,0 +1,85 @@
+✖ converts Q4_K_M weight bytes to GiB (4.3482ms)
+✖ runtime estimate includes context-scaled KV cache and overhead (0.3256ms)
+✔ rejects unsupported quantization (0.3861ms)
+✔ parses Q4_K_M exactly (0.9375ms)
+✔ parses Q8_0 exactly (0.2047ms)
+✔ does not invent a Q quantization for NVFP4 (0.1176ms)
+✔ evaluateFit marks a model compatible within the memory budget (1.3254ms)
+✔ evaluateFit rejects a model that exceeds the total budget (0.1325ms)
+✔ rankModels prefers larger models first (0.1502ms)
+✖ rankModels prefers smaller footprint when parameter counts tie (0.8036ms)
+✔ rankModels uses filename as final deterministic tie-break (8.8569ms)
+✔ chooseModels parses, filters and ranks end to end (0.5097ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 9
+ℹ fail 3
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 97.8851
+
+✖ failing tests:
+
+test at test\memory.test.js:7:1
+✖ converts Q4_K_M weight bytes to GiB (4.3482ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(Math.abs(actual - expected) < 1e-9)
+  
+      at TestContext.<anonymous> (file:///REPOSITORY/tests/agentic/project/test/memory.test.js:11:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.start (node:internal/test_runner/test:1242:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at test\memory.test.js:14:1
+✖ runtime estimate includes context-scaled KV cache and overhead (0.3256ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(Math.abs(actual - expected) < 1e-9)
+  
+      at TestContext.<anonymous> (file:///REPOSITORY/tests/agentic/project/test/memory.test.js:23:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at test\planner.test.js:54:1
+✖ rankModels prefers smaller footprint when parameter counts tie (0.8036ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + 'LargeFootprint.gguf'
+  - 'SmallFootprint.gguf'
+  
+      at TestContext.<anonymous> (file:///REPOSITORY/tests/agentic/project/test/planner.test.js:60:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'LargeFootprint.gguf',
+    expected: 'SmallFootprint.gguf',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

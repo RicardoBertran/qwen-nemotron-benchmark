@@ -1,0 +1,26 @@
+Escribe una implementación completa en Python de esta función:
+
+def rebuild_sessions(events):
+
+Recibe una lista de diccionarios. Cada evento tiene:
+- user: cadena que identifica al usuario.
+- timestamp: entero.
+- type: "start", "data" o "end".
+- bytes: entero no negativo, presente solamente en eventos "data".
+
+Reglas:
+1. Procesa los eventos por timestamp ascendente. Si hay empates, conserva el orden original de entrada.
+2. Cada usuario puede tener como máximo una sesión abierta. Los usuarios son independientes.
+3. Un "start" abre una sesión con cero bytes.
+4. Si un "start" encuentra una sesión abierta del mismo usuario, cierra la anterior en ese timestamp con reason="restarted" y abre una nueva.
+5. Un "data" suma sus bytes a la sesión abierta de ese usuario. Si no existe una sesión abierta, se ignora.
+6. Un "end" cierra la sesión abierta de ese usuario en ese timestamp con reason="ended". Si no existe una sesión abierta, se ignora.
+7. Al terminar, conserva las sesiones abiertas con end=None y reason="open".
+8. Devuelve una lista con TODAS las sesiones, incluidas las cerradas y las abiertas.
+9. Cada sesión devuelta es un diccionario con exactamente estas claves: user, start, end, bytes, reason.
+10. La lista debe respetar el orden GLOBAL en que se abrieron las sesiones después de ordenar los eventos, independientemente del usuario y del orden de cierre.
+11. No modifiques la lista de entrada ni sus diccionarios.
+12. Para una lista vacía devuelve []. No necesitas validar entradas malformadas.
+13. Usa solamente la biblioteca estándar de Python. No uses herramientas ni ejecutes código.
+
+Devuelve únicamente el código Python, sin Markdown ni explicación. No cambies la firma de la función.

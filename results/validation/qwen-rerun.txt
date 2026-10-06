@@ -1,0 +1,14 @@
+Benchmark de codigo - Qwen
+
+[01] PASS - Entrada vacia
+[02] PASS - Sesion normal y suma de bytes
+[03] PASS - Eventos desordenados
+[04] PASS - Eventos huerfanos y posteriores al cierre
+[05] PASS - Reinicio conserva bytes y separa sesiones
+[06] PASS - Sesion abierta al finalizar
+[07] PASS - Usuarios independientes y orden global de apertura
+[08] PASS - Empates mantienen el orden original
+[09] PASS - Cerradas y abiertas conservan orden global
+[10] PASS - Reinicios empatados y reapertura tras end
+
+Qwen: 10/10 tests superados

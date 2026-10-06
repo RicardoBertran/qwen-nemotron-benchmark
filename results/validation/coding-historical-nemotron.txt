@@ -1,0 +1,57 @@
+
+❌ basic
+EXPECTED:
+[{'user': 'a', 'start': 1, 'end': 3, 'bytes': 100, 'reason': 'ended'}]
+GOT:
+[{'user': 'a', 'start': 1, 'end': 3, 'bytes': 0, 'reason': 'ended'}]
+
+❌ unordered
+EXPECTED:
+[{'user': 'a', 'start': 1, 'end': 3, 'bytes': 25, 'reason': 'ended'}]
+GOT:
+[{'user': 'a', 'start': 1, 'end': 3, 'bytes': 0, 'reason': 'ended'}]
+
+❌ orphan_events
+EXPECTED:
+[{'user': 'a', 'start': 3, 'end': None, 'bytes': 5, 'reason': 'open'}]
+GOT:
+[{'user': 'a', 'start': 3, 'end': None, 'bytes': 0, 'reason': 'open'}]
+
+❌ restart
+EXPECTED:
+[{'user': 'a', 'start': 1, 'end': 5, 'bytes': 10, 'reason': 'restarted'}, {'user': 'a', 'start': 5, 'end': 7, 'bytes': 20, 'reason': 'ended'}]
+GOT:
+[{'user': 'a', 'start': 1, 'end': 5, 'bytes': 0, 'reason': 'restarted'}, {'user': 'a', 'start': 5, 'end': 7, 'bytes': 0, 'reason': 'ended'}]
+
+❌ multiple_users
+EXPECTED:
+[{'user': 'a', 'start': 1, 'end': 5, 'bytes': 10, 'reason': 'ended'}, {'user': 'b', 'start': 2, 'end': 6, 'bytes': 50, 'reason': 'ended'}]
+GOT:
+[{'user': 'a', 'start': 1, 'end': 5, 'bytes': 0, 'reason': 'ended'}, {'user': 'b', 'start': 2, 'end': 6, 'bytes': 0, 'reason': 'ended'}]
+
+❌ stable_same_timestamp
+EXPECTED:
+[{'user': 'a', 'start': 10, 'end': 10, 'bytes': 7, 'reason': 'ended'}]
+GOT:
+[{'user': 'a', 'start': 10, 'end': 10, 'bytes': 0, 'reason': 'ended'}]
+
+❌ open_session
+EXPECTED:
+[{'user': 'a', 'start': 1, 'end': None, 'bytes': 42, 'reason': 'open'}]
+GOT:
+[{'user': 'a', 'start': 1, 'end': None, 'bytes': 0, 'reason': 'open'}]
+
+❌ ignore_non_data_bytes
+EXPECTED:
+[{'user': 'a', 'start': 1, 'end': 3, 'bytes': 3, 'reason': 'ended'}]
+GOT:
+[{'user': 'a', 'start': 1, 'end': 3, 'bytes': 0, 'reason': 'ended'}]
+
+❌ multiple_restarts
+EXPECTED:
+[{'user': 'a', 'start': 1, 'end': 3, 'bytes': 1, 'reason': 'restarted'}, {'user': 'a', 'start': 3, 'end': 5, 'bytes': 2, 'reason': 'restarted'}, {'user': 'a', 'start': 5, 'end': 6, 'bytes': 0, 'reason': 'ended'}]
+GOT:
+[{'user': 'a', 'start': 1, 'end': 3, 'bytes': 0, 'reason': 'restarted'}, {'user': 'a', 'start': 3, 'end': 5, 'bytes': 0, 'reason': 'restarted'}, {'user': 'a', 'start': 5, 'end': 6, 'bytes': 0, 'reason': 'ended'}]
+✅ global_open_order
+
+RESULTADO: 1/10 tests superados

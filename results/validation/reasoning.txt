@@ -1,0 +1,1 @@
+120 permutaciones comprobadas. Óptimo único: S -> D -> B -> C -> E -> A -> S; distancia 28.

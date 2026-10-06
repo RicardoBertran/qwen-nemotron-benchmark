@@ -1,0 +1,11 @@
+--- initial/src/memory.js
++++ qwen/src/memory.js
+@@ -31,7 +31,7 @@
+   const bytes = paramsB * 1_000_000_000 * bytesPerParam;
+ 
+   // convert bytes to GiB
+-  return bytes / 1_000_000_000;
++  return bytes / (1024 ** 3);
+ }
+ 
+ /**

@@ -1,0 +1,35 @@
+Batería posterior; evaluación de código conservado.
+Benchmark de codigo - recovered-nemotron
+
+[01] PASS - Entrada vacia
+[02] FAIL - Sesion normal y suma de bytes
+     AssertionError: Esperado: [{'user': 'a', 'start': 1, 'end': 4, 'bytes': 12, 'reason': 'ended'}]
+     Obtenido: [{'user': 'a', 'start': 1, 'end': 4, 'bytes': 0, 'reason': 'ended'}]
+[03] FAIL - Eventos desordenados
+     AssertionError: Esperado: [{'user': 'a', 'start': 1, 'end': 9, 'bytes': 13, 'reason': 'ended'}]
+     Obtenido: [{'user': 'a', 'start': 1, 'end': 9, 'bytes': 0, 'reason': 'ended'}]
+[04] FAIL - Eventos huerfanos y posteriores al cierre
+     AssertionError: Esperado: [{'user': 'a', 'start': 2, 'end': 4, 'bytes': 6, 'reason': 'ended'}]
+     Obtenido: [{'user': 'a', 'start': 2, 'end': 4, 'bytes': 0, 'reason': 'ended'}]
+[05] FAIL - Reinicio conserva bytes y separa sesiones
+     AssertionError: Esperado: [{'user': 'a', 'start': 1, 'end': 3, 'bytes': 8, 'reason': 'restarted'}, {'user': 'a', 'start': 3, 'end': 5, 'bytes': 3, 'reason': 'ended'}]
+     Obtenido: [{'user': 'a', 'start': 1, 'end': 3, 'bytes': 0, 'reason': 'restarted'}, {'user': 'a', 'start': 3, 'end': 5, 'bytes': 0, 'reason': 'ended'}]
+[06] FAIL - Sesion abierta al finalizar
+     AssertionError: Esperado: [{'user': 'a', 'start': 1, 'end': None, 'bytes': 4, 'reason': 'open'}]
+     Obtenido: [{'user': 'a', 'start': 1, 'end': None, 'bytes': 0, 'reason': 'open'}]
+[07] FAIL - Usuarios independientes y orden global de apertura
+     AssertionError: Esperado: [{'user': 'a', 'start': 1, 'end': 6, 'bytes': 2, 'reason': 'ended'}, {'user': 'b', 'start': 2, 'end': 4, 'bytes': 11, 'reason': 'ended'}]
+     Obtenido: [{'user': 'a', 'start': 1, 'end': 6, 'bytes': 0, 'reason': 'ended'}, {'user': 'b', 'start': 2, 'end': 4, 'bytes': 0, 'reason': 'ended'}]
+[08] FAIL - Empates mantienen el orden original
+     AssertionError: Esperado: [{'user': 'a', 'start': 5, 'end': 5, 'bytes': 7, 'reason': 'ended'}, {'user': 'a', 'start': 5, 'end': None, 'bytes': 3, 'reason': 'open'}]
+     Obtenido: [{'user': 'a', 'start': 5, 'end': 5, 'bytes': 0, 'reason': 'ended'}, {'user': 'a', 'start': 5, 'end': None, 'bytes': 0, 'reason': 'open'}]
+[09] FAIL - Cerradas y abiertas conservan orden global
+     AssertionError: Esperado: [{'user': 'a', 'start': 1, 'end': None, 'bytes': 5, 'reason': 'open'}, {'user': 'b', 'start': 2, 'end': 5, 'bytes': 9, 'reason': 'ended'}, {'user': 'b', 'start': 6, 'end': None, 'bytes': 2, 'reason': 'open'}]
+     Obtenido: [{'user': 'a', 'start': 1, 'end': None, 'bytes': 0, 'reason': 'open'}, {'user': 'b', 'start': 2, 'end': 5, 'bytes': 0, 'reason': 'ended'}, {'user': 'b', 'start': 6, 'end': None, 'bytes': 0, 'reason': 'open'}]
+[10] FAIL - Reinicios empatados y reapertura tras end
+     AssertionError: Esperado: [{'user': 'a', 'start': 1, 'end': 1, 'bytes': 4, 'reason': 'restarted'}, {'user': 'a', 'start': 1, 'end': 2, 'bytes': 6, 'reason': 'ended'}, {'user': 'a', 'start': 2, 'end': 3, 'bytes': 10, 'reason': 'ended'}]
+     Obtenido: [{'user': 'a', 'start': 1, 'end': 1, 'bytes': 0, 'reason': 'restarted'}, {'user': 'a', 'start': 1, 'end': 2, 'bytes': 0, 'reason': 'ended'}, {'user': 'a', 'start': 2, 'end': 3, 'bytes': 0, 'reason': 'ended'}]
+
+recovered-nemotron: 1/10 tests superados
+
+Exit code: 1

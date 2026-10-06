@@ -1,0 +1,14 @@
+Tienes que planificar una ruta de reparto.
+Sales de S, debes visitar exactamente una vez A, B, C, D y E, y terminar de nuevo en S.
+Las distancias son simétricas:
+S-A: 7; S-B: 11; S-C: 9; S-D: 6; S-E: 10.
+A-B: 5; A-C: 8; A-D: 7; A-E: 4.
+B-C: 6; B-D: 3; B-E: 9.
+C-D: 5; C-E: 2.
+D-E: 8.
+Restricciones:
+C debe visitarse antes que E.
+D debe visitarse antes que B.
+A y B no pueden ser consecutivos.
+Encuentra la ruta válida de menor distancia. Explica brevemente el resultado e incluye la suma de distancias.
+No uses herramientas ni código.
